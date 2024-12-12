@@ -154,16 +154,16 @@ const Navbar = () => {
                     className="h-full flex flex-col items-center justify-center gap-8 text-lg text-muted-foreground"
                 >
                     <motion.li variants={mobileItemVariants}>
-                        <a href="#works" className="flex items-center gap-3 hover:text-foreground transition-colors" onClick={toggleMenu}>
+                        <Link to="/showcase/buttons" className="flex items-center gap-3 hover:text-foreground transition-colors" onClick={toggleMenu}>
                             <Briefcase className="h-5 w-5" />
                             <span>Works</span>
-                        </a>
+                        </Link>
                     </motion.li>
                     <motion.li variants={mobileItemVariants}>
-                        <a href="#resume" className="flex items-center gap-3 hover:text-foreground transition-colors" onClick={toggleMenu}>
+                        <Link to="/error" className="flex items-center gap-3 hover:text-foreground transition-colors" onClick={toggleMenu}>
                             <FileText className="h-5 w-5" />
-                            <span>Resume</span>
-                        </a>
+                            <span>Check This</span>
+                        </Link>
                     </motion.li>
                     <motion.li variants={mobileItemVariants}>
                         <a href="#services" className="flex items-center gap-3 hover:text-foreground transition-colors" onClick={toggleMenu}>
