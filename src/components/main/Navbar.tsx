@@ -1,6 +1,7 @@
 import { Mail, Briefcase, FileText, Tag, Contact, Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -53,7 +54,7 @@ const Navbar = () => {
     }
 
     const mobileItemVariants = {
-        closed: { 
+        closed: {
             opacity: 0,
             x: 20
         },
@@ -73,11 +74,11 @@ const Navbar = () => {
     }
 
     return (
-        <motion.header 
+        <motion.header
             className="fixed top-0 left-0 right-0 w-full z-40 "
             initial={{ y: -100 }}
             animate={{ y: 0 }}
-            transition={{ 
+            transition={{
                 type: "spring",
                 stiffness: 200,
                 damping: 20
@@ -85,34 +86,34 @@ const Navbar = () => {
         >
             <div className="relative flex justify-between items-center max-w-7xl px-4 md:px-6 py-3 md:py-4 mx-auto bg-background/80 backdrop-blur-sm border-b border-border font-sans text-sm font-medium">
                 <motion.div variants={itemVariants}>
-                    <a 
-                        href="mailto:souravvmishra@gmail.com" 
+                    <Link
+                        to={'/'}
                         className="flex text-sm items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                        aria-label="Email me at souravvmishra@gmail.com"
+                        aria-label="Sourav Mishra"
                     >
                         <Mail className="w-3 h-3" />
-                        <span className="hidden sm:inline">souravvmishra@gmail.com</span>
-                    </a>
+                        <span className="hidden sm:inline">souravvmishra</span>
+                    </Link>
                 </motion.div>
 
                 <nav className="hidden md:block">
-                    <motion.ul 
+                    <motion.ul
                         className="text-sm flex items-center gap-8 text-muted-foreground"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
                     >
                         <motion.li variants={itemVariants}>
-                            <a href="#works" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                            <Link to="/showcase/buttons" className="flex items-center gap-2 hover:text-foreground transition-colors">
                                 <Briefcase className="w-3 h-3" />
                                 <span>Works</span>
-                            </a>
+                            </Link>
                         </motion.li>
                         <motion.li variants={itemVariants}>
-                            <a href="#resume" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                            <Link to="/error" className="flex items-center gap-2 hover:text-foreground transition-colors">
                                 <FileText className="w-3 h-3" />
-                                <span>Resume</span>
-                            </a>
+                                <span>Check This</span>
+                            </Link>
                         </motion.li>
                         <motion.li variants={itemVariants}>
                             <a href="#services" className="flex items-center gap-2 hover:text-foreground transition-colors">
@@ -129,7 +130,7 @@ const Navbar = () => {
                     </motion.ul>
                 </nav>
 
-                <button 
+                <button
                     className="md:hidden text-muted-foreground hover:text-foreground transition-colors z-50 relative"
                     onClick={toggleMenu}
                     aria-label="Toggle menu"
@@ -142,14 +143,14 @@ const Navbar = () => {
                 </button>
             </div>
 
-            <motion.nav 
+            <motion.nav
                 aria-label="Main navigation"
                 className="fixed top-[52px] right-0 bottom-0 w-full md:hidden bg-background z-30"
                 initial="closed"
                 animate={isMenuOpen ? "open" : "closed"}
                 variants={mobileMenuVariants}
             >
-                <motion.ul 
+                <motion.ul
                     className="h-full flex flex-col items-center justify-center gap-8 text-lg text-muted-foreground"
                 >
                     <motion.li variants={mobileItemVariants}>

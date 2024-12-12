@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion'
-import { ModeToggle } from '../ui/mode-toggle'
-import Navbar from './Navbar'
 import { staggerWords } from '../utility'
 import ConnectButton from './button/Connect.button'
 
@@ -32,7 +30,6 @@ const Hero = () => {
 
     return (
         <main className="flex flex-col items-center justify-center min-h-screen bg-background">
-            <Navbar />
             <motion.section 
                 className="flex flex-col items-center mt-24 md:mt-16 text-center px-4 md:px-6"
                 variants={containerVariants}
@@ -73,19 +70,6 @@ const Hero = () => {
                     <ConnectButton />
                 </motion.div>
             </motion.section>
-
-            <motion.div 
-                className="fixed bottom-4 right-4 z-50"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 20
-                }}
-            >
-                <ModeToggle />
-            </motion.div>
         </main>
     )
 }
