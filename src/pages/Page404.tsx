@@ -52,7 +52,7 @@ const NotFoundPage = () => {
           variants={itemVariants}
           className="text-3xl md:text-4xl font-extrabold text-foreground"
         >
-          Get Lost?
+          Got Lost?
         </motion.h1>
         <motion.p
           variants={itemVariants}

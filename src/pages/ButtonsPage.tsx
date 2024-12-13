@@ -45,12 +45,12 @@ const Showcase = () => {
                 </motion.h1>
 
                 <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 mt-8 md:mt-12 w-full max-w-6xl"
+                    className="flex flex-wrap justify-center gap-6 mt-8 md:mt-12 w-full max-w-6xl"
                     variants={containerVariants}
                 >
                     {AllButtons.map((IndexButton, i) => (
-                        <motion.div key={i} variants={itemVariants}>
-                            <Card className="p-6 shadow-lg hover:shadow-xl rounded-lg transition-shadow duration-300  w-full">
+                        <motion.div key={i} variants={itemVariants} className="flex">
+                            <Card className="p-6 shadow-lg hover:shadow-xl rounded-lg transition-shadow duration-300 w-full max-w-[fit-content]">
                                 <CardContent className="p-4">
                                     <div className="flex justify-center items-center">
                                         <IndexButton />
@@ -60,7 +60,6 @@ const Showcase = () => {
                         </motion.div>
                     ))}
                 </motion.div>
-
             </motion.section>
         </main>
     );

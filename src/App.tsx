@@ -2,7 +2,7 @@ import './App.css'
 import AnimatedCursor from "react-animated-cursor"
 import { ThemeProvider } from "@/components/ui/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from './pages/Homepage'
 import Page404 from './pages/Page404';
 import { ModeToggle } from './components/ui/mode-toggle';

@@ -1,4 +1,4 @@
-import { Mail, Briefcase, FileText, Tag, Contact, Menu, X } from 'lucide-react'
+import { Briefcase, FileText, Tag, Contact, Menu, X, User } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -12,7 +12,7 @@ const Navbar = () => {
             opacity: 1,
             transition: {
                 staggerChildren: 0.1,
-                delayChildren: 0.3
+                delayChildren: 0.5,
             }
         }
     }
@@ -26,7 +26,7 @@ const Navbar = () => {
                 type: "spring",
                 stiffness: 100,
                 damping: 10,
-                duration: 0.5
+                duration: 1
             }
         }
     }
@@ -91,7 +91,7 @@ const Navbar = () => {
                         className="flex text-sm items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                         aria-label="Sourav Mishra"
                     >
-                        <Mail className="w-3 h-3" />
+                        <User className="w-3 h-3" />
                         <span className="hidden sm:inline">souravvmishra</span>
                     </Link>
                 </motion.div>
