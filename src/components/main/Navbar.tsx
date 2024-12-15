@@ -1,4 +1,4 @@
-import { Briefcase, FileText, Tag, Contact, Menu, X, User } from 'lucide-react'
+import { Briefcase, FileText, Menu, X, User, ExternalLink, FileUser } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -91,7 +91,7 @@ const Navbar = () => {
                         className="flex text-sm items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                         aria-label="Sourav Mishra"
                     >
-                        <User className="w-3 h-3" />
+                        <User className="w-4 h-4" />
                         <span className="hidden sm:inline">souravvmishra</span>
                     </Link>
                 </motion.div>
@@ -116,15 +116,19 @@ const Navbar = () => {
                             </Link>
                         </motion.li>
                         <motion.li variants={itemVariants}>
-                            <a href="#services" className="flex items-center gap-2 hover:text-foreground transition-colors">
-                                <Tag className="w-3 h-3" />
-                                <span>Services</span>
+                            <a
+                                href="/souravvmishra_developer.pdf"
+                                download="souravvmishra_developer"
+                                className="flex items-center gap-2 hover:text-foreground transition-colors"
+                            >
+                                <FileUser className="w-3 h-3" />
+                                <span>Resume</span>
                             </a>
                         </motion.li>
                         <motion.li variants={itemVariants}>
-                            <a href="#contact" className="flex items-center gap-2 hover:text-foreground transition-colors">
-                                <Contact className="w-3 h-3" />
-                                <span>Contact</span>
+                            <a href="https://meetman.codestam.com" target="_blank" className="flex items-center gap-3 hover:text-foreground transition-colors" onClick={toggleMenu}>
+                                <ExternalLink className="h-3 w-3" />
+                                <span>Meetman</span>
                             </a>
                         </motion.li>
                     </motion.ul>
@@ -166,15 +170,20 @@ const Navbar = () => {
                         </Link>
                     </motion.li>
                     <motion.li variants={mobileItemVariants}>
-                        <a href="#services" className="flex items-center gap-3 hover:text-foreground transition-colors" onClick={toggleMenu}>
-                            <Tag className="h-5 w-5" />
-                            <span>Services</span>
+                        <a
+                            href="/souravvmishra_developer.pdf"
+                            download="souravvmishra_developer"
+                            className="flex items-center gap-2 hover:text-foreground transition-colors"
+                        >
+                            <FileUser className="h-5 w-5" />
+                            <span>Resume</span>
                         </a>
+
                     </motion.li>
                     <motion.li variants={mobileItemVariants}>
-                        <a href="#contact" className="flex items-center gap-3 hover:text-foreground transition-colors" onClick={toggleMenu}>
-                            <Contact className="h-5 w-5" />
-                            <span>Contact</span>
+                        <a href="https://meetman.codestam.com" target="_blank" className="flex items-center gap-3 hover:text-foreground transition-colors" onClick={toggleMenu}>
+                            <ExternalLink className="h-5 w-5" />
+                            <span>Meetman</span>
                         </a>
                     </motion.li>
                 </motion.ul>

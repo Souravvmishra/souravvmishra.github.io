@@ -3,6 +3,53 @@ import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+export const FloatingEmojis = () => {
+  const floatingEmojis = Array.from(
+    { length: 0x1FAFF - 0x1F300 + 1 },
+    (_, i) => String.fromCodePoint(i + 0x1F300)
+  ).filter(e => /\p{Emoji}/u.test(e));
+
+  // Limit the number of floating emojis to 10
+  const randomEmojis = floatingEmojis.sort(() => 0.5 - Math.random()).slice(0, 10);
+
+  const generateRandomStyle = () => {
+    const left = Math.random() * 100; // Random horizontal position
+    const duration = 4 + Math.random() * 4; // Random float duration
+    const size = 1 + Math.random(); // Random emoji size
+    return {
+      left: `${left}%`,
+      fontSize: `${size}rem`,
+      animationDuration: `${duration}s`,
+    };
+  };
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {randomEmojis.map((emoji, index) => (
+        <motion.div
+          key={index}
+          className="absolute -z-0 bottom-0 text-3xl"
+          style={generateRandomStyle()}
+          initial={{ opacity: 0, y: 0 }}
+          animate={{
+            opacity: [0, 1, 0], // Fade in and fade out
+            y: ['100%', '-1000%'] // Move from bottom to top
+          }}
+          transition={{
+            duration: parseFloat(generateRandomStyle().animationDuration), // Random duration
+            ease: 'easeInOut',
+            repeat: Infinity,
+            repeatType: 'loop'
+          }}
+          aria-label='Floating Emoji by Sourav Mishra'
+        >
+          {emoji}
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
 const NotFoundPage = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -22,22 +69,6 @@ const NotFoundPage = () => {
       y: 0,
       transition: { type: 'spring', stiffness: 100, damping: 10 }
     }
-  };
-
-  const floatingEmojis = Array.from({ length: 0x1FAFF - 0x1F300 + 1 }, (_, i) => String.fromCodePoint(i + 0x1F300)).filter(e => /\p{Emoji}/u.test(e));
-
-  // Limit the number of floating emojis to 10
-  const randomEmojis = floatingEmojis.sort(() => 0.5 - Math.random()).slice(0, 10);
-
-  const generateRandomStyle = () => {
-    const left = Math.random() * 100; // Random horizontal position
-    const duration = 4 + Math.random() * 4; // Random float duration
-    const size = 1 + Math.random(); // Random emoji size
-    return {
-      left: `${left}%`,
-      fontSize: `${size}rem`,
-      animationDuration: `${duration}s`,
-    };
   };
 
   return (
@@ -64,37 +95,14 @@ const NotFoundPage = () => {
           variants={itemVariants}
           className="mt-6"
         >
-          <Link to={'/'} className={buttonVariants({variant : 'default'})}>
+          <Link to={'/'} className={buttonVariants({ variant: 'default' })}>
             Take Me Home <ExternalLink />
           </Link>
         </motion.div>
       </motion.section>
 
       {/* Floating Emojis */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {randomEmojis.map((emoji, index) => (
-          <motion.div
-            key={index}
-            className="absolute -z-0 bottom-0 text-3xl"
-            style={generateRandomStyle()}
-            initial={{ opacity: 0, y: 0 }}
-            animate={{
-              opacity: [0, 1, 0], // Fade in and fade out
-              y: ['100%', '-1000%'] // Move from bottom to top
-            }}
-            transition={{
-              duration: parseFloat(generateRandomStyle().animationDuration), // Random duration
-              ease: 'easeInOut',
-              repeat: Infinity,
-              repeatType: 'loop'
-            }}
-          >
-            {emoji}
-          </motion.div>
-        ))}
-      </div>
-
-
+      <FloatingEmojis />
     </main>
   );
 };
