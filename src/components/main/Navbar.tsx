@@ -110,10 +110,10 @@ const Navbar = () => {
                             </Link>
                         </motion.li>
                         <motion.li variants={itemVariants}>
-                            <Link to="/error" className="flex items-center gap-2 hover:text-foreground transition-colors">
+                            <a href='https://buymeacoffee.com/souravvmishra' className="flex items-center gap-2 hover:text-foreground transition-colors">
                                 <FileText className="w-3 h-3" />
                                 <span>Check This</span>
-                            </Link>
+                            </a>
                         </motion.li>
                         <motion.li variants={itemVariants}>
                             <a
