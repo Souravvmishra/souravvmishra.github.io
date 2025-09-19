@@ -32,8 +32,38 @@ const Hero = () => {
         <main
             className="flex flex-col items-center justify-center min-h-screen bg-background"
             role="main"
-            aria-label="Sourav Mishra - Product Designer and Visual Developer"
+            aria-label="Codestam Technologies - Best Software Company in Ranchi"
         >
+            {/* SEO / Accessibility Hidden Content */}
+            <section
+                className="sr-only"
+                aria-label="Codestam Technologies - Software Company Ranchi Jharkhand"
+            >
+                <h1>Codestam Technologies - Best Software Company in Ranchi</h1>
+                <p>
+                    Codestam Technologies, co-founded by Sourav Mishra (CTO), is the best software
+                    company in Ranchi, Jharkhand. We build websites, mobile apps, and AI-powered
+                    solutions for startups and businesses across India.
+                </p>
+                <p>
+                    As a top IT company in Ranchi, Codestam Technologies focuses on web design, app
+                    development, UI/UX, and automation services that help businesses grow online with
+                    modern digital products.
+                </p>
+                <p>
+                    We are known for delivering high-quality software solutions that are easy to use,
+                    scalable, and built with the latest technologies.
+                </p>
+                <a
+                    href="https://codestam.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Visit Codestam Technologies Official Website"
+                >
+                    Visit Codestam Technologies
+                </a>
+            </section>
+
             <motion.section
                 className="flex flex-col items-center mt-24 md:mt-16 text-center px-4 md:px-6"
                 variants={containerVariants}
@@ -43,7 +73,7 @@ const Hero = () => {
                 <motion.img
                     variants={itemVariants}
                     src="https://avatars.githubusercontent.com/u/89072785?v=4"
-                    alt="Sourav Mishra, Product Designer and Visual Developer based in Jammu, India"
+                    alt="Sourav Mishra, Co Founder and CTO at Codestam Technologies, Ranchi"
                     className="w-20 h-20 md:w-24 md:h-24 rounded-full"
                     width="96"
                     height="96"
@@ -70,7 +100,7 @@ const Hero = () => {
                     className="mt-3 md:mt-4 text-sm md:text-base text-muted-foreground max-w-lg px-4"
                 >
                     {staggerWords(
-                        "I'm Sourav Mishra, a Product Designer and Visual Developer based in Jammu, India. I specialize in UI/UX Design, Responsive Web Design, and Visual Development."
+                        "We are Codestam Technologies, a software company based in Ranchi, India. As Co Founder and CTO, Sourav Mishra leads our team in designing websites, apps, and user-friendly digital products that help businesses grow online."
                     )}
                 </motion.p>
                 <motion.div variants={itemVariants}>
